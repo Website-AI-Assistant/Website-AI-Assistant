@@ -26,7 +26,7 @@ keepalive = 5
 max_requests = 2000
 max_requests_jitter = 100
 
-bind = os.getenv("GUNICORN_BIND", "127.0.0.1:8000")
+bind = os.getenv("GUNICORN_BIND", "0.0.0.0:8000")
 worker_tmp_dir = "/dev/shm"
 
 accesslog = os.getenv("GUNICORN_ACCESS_LOG", "-")
