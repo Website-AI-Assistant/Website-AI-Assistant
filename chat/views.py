@@ -452,8 +452,8 @@ def _sse_event(event_name, data):
 
 @api_view(["GET"])
 @authentication_classes([])
-@permission_classes([WidgetAccessPermission])
-@throttle_classes([WidgetRateThrottle])
+@permission_classes([])
+@throttle_classes([])
 def health(request):
     from django.db import connection
 
