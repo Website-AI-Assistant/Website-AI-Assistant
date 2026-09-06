@@ -179,9 +179,6 @@ if REDIS_URL:
             "LOCATION": REDIS_URL,
             "KEY_PREFIX": "aisup",
             "TIMEOUT": int(os.getenv("CACHE_TIMEOUT", "300")),
-            "OPTIONS": {
-                "ignore_exc": True,
-            },
         }
     }
 else:
