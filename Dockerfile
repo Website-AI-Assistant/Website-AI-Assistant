@@ -33,14 +33,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # ─── Application code ───────────────────────────────────────────────────
 COPY . .
 
-# Collect static files
-RUN SECRET_KEY=build-placeholder DEBUG=True \
-    python manage.py collectstatic --noinput 2>/dev/null || true
-
 # Create non-root user
 RUN addgroup --system django && adduser --system --ingroup django django
 RUN mkdir -p /app/Data /app/media /app/staticfiles && \
     chown -R django:django /app
+
+# Collect static files
+RUN SECRET_KEY=build-placeholder DEBUG=True \
+    python manage.py collectstatic --noinput 2>/dev/null || true
 
 USER django
 
